@@ -1,0 +1,38 @@
+@import '../../theme/theme.scss';
+
+$font-size: 12px;
+$line-height: 1.4;
+$lines-to-show: 2;
+
+.channel-box {
+  width: 100px;
+  text-align: center;
+  .channel-box-image {
+    height: 100px;
+    background-color: white;
+    border-radius: 2px;
+    background-size: contain;
+  }
+  .channel-box-title {
+    font-size: $font-size;
+    @include themify() {
+      color: themed('secondaryColor');
+    }
+    display: block; /* Fallback for non-webkit */
+    height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+    margin-top: 4px;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  &.small {
+    width: 70px;
+    .channel-box-image{
+      height: 70px;
+    }
+  }
+}

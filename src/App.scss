@@ -1,0 +1,242 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import './theme/theme.scss';
+
+@font-face {
+  font-family: 'Lato';
+	font-style: normal;
+  font-weight: 400;
+  src: url('./resources/font/lato/Lato-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-weight: bold;
+  src: url('./resources/font/lato/Lato-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+	font-style: italic;
+  src: url('./resources/font/lato/Lato-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+	font-style: italic;
+  font-weight: bold;
+  src: url('./resources/font/lato/Lato-BoldItalic.ttf') format('truetype');
+}
+
+::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.modal-open {
+    overflow: hidden;
+
+    &.clear-overflow #main {
+      .header .navbar-right, .content {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+}
+
+#main {
+  position: relative;
+  @include themify() {
+    background-color: themed('secondaryBgColor');
+  }
+
+  &.blur {
+    > .content {
+      filter: blur(6px);
+    }
+    
+    &:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#EFF4F0,0.4);
+      z-index: 110;
+    }
+
+    &.header-blur {
+      .header {
+        filter: blur(6px);
+      }
+    
+      &:before {
+        z-index: 210;
+      }
+    }
+  }
+  
+  > .content {
+    padding-top: 80px;
+    min-height: 100vh;
+    position: relative;
+  }
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 15px 20px 15px !important;
+
+  .left-content {
+    width: 250px;
+    margin-right: 15px;
+  }
+  
+  .main-content {
+    max-width: 860px;
+    flex: 1;
+  }
+  
+  .right-content {
+    width: 200px;
+    margin-left: 15px;
+  }
+
+  .sub-header {
+    display: flex;
+    align-items: center;
+
+    .sub-header-title {
+      @include themify() {
+        color: themed('primaryColor');
+      }
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0 0 0 6px;
+    }
+  }
+
+  @media (max-width: 1340px) {
+    .right-content {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1125px) {
+    .left-content {
+      display: none;
+    }
+  }
+}
+
+.blue {
+  color: color('blue');
+  fill: color('blue');
+}
+
+.black {
+  color: color('black');
+  fill: color('black');
+}
+
+.lightBlue {
+  color: color('lightBlue');
+  fill: color('lightBlue');
+}
+
+.green {
+  color: color('green');
+  fill: color('green');
+}
+
+.pink {
+  color: color('pink');
+  fill: color('pink');
+}
+
+.darkPink {
+  color: color('darkPink');
+  fill: color('darkPink');
+}
+
+.white {
+  color: color('white');
+  fill: color('white');
+}
+
+.yellow {
+  color: color('yellow');
+  fill: color('yellow');
+}
+
+.btn-main {
+  min-width: 160px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  color: color('white');
+  padding: 9px 36px;
+  border: 0;
+  border-radius: 4px;
+  background-image: linear-gradient(45deg, color('primaryGradientStart'), color('primaryGradientEnd'));
+
+  &:hover {
+    color: color('white');
+  }
+}
+
+.btn-main-outline {
+  min-width: 160px;
+  font-size: 18px;
+  line-height: 22px;
+  @include themify() {
+    color: themed('secondaryColor');
+    border-color: themed('secondaryColor');
+  }
+  padding: 9px 36px;
+  border: 1 solid;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+#svg-gradient-primary {
+  --gradient-color-start: #{color('primaryGradientStart')};
+  --gradient-color-end: #{color('primaryGradientEnd')};
+}
+#svg-gradient-secondary {
+  --gradient-color-start: #{color('secondaryGradientStart')};
+  --gradient-color-end: #{color('secondaryGradientEnd')};
+}
+
+// .icon-primary {
+//   fill: url(#svg-gradient-primary) white;
+// }
+
+// .icon-secondary {
+//   fill: url(#svg-gradient-secondary) white;
+// }

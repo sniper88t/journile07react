@@ -1,0 +1,95 @@
+@import '../../theme/theme.scss';
+
+.hot-channel-list{
+	display: grid;
+	width: 100%;
+	margin-top: 10px;
+	grid-gap: 5px; //margin between channels
+	grid-template-columns: repeat(3, 70px);
+}
+.select-menu{
+	cursor: pointer;
+	margin-left: 5px;
+	.icon-right-margin{
+		margin-right: 5px;
+	}
+	.channel{
+		width: 200px;
+	}
+}
+.channel-filter{
+	display: flex;
+	width: 100%;
+	.globe{
+		display: flex;
+	}
+	.channel-filter-column{
+		width: 50%;
+		line-height: 1;
+
+		@media (max-width: 800px){
+			display: block;
+		}
+		@media (min-width: 800px){
+			display: flex;
+		}
+	}
+	.second{
+		justify-content: flex-end;
+	}
+}
+.list-menu{
+	max-height: 200px;
+}
+.icon-gray{
+	@include themify() {
+    fill: themed('secondaryColor');
+  }
+}
+.search-title{
+	font-size: 14px;
+	@include themify() {
+    color: themed('secondaryColor');
+  }
+	border: none;
+	background-color: transparent;
+}
+.search-title::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	@include themify() {
+    color: themed('secondaryColor');
+  }
+	opacity: 1; /* Firefox */
+}
+.search-title :-ms-input-placeholder { /* Internet Explorer 10-11 */
+	@include themify() {
+    color: themed('secondaryColor');
+  }
+}
+.search-title ::-ms-input-placeholder { /* Microsoft Edge */
+	@include themify() {
+    color: themed('secondaryColor');
+  }
+}
+.channel-list{
+	display: grid;
+	width: 100%;
+	margin-top: 10px;
+	grid-gap: 10px; //margin between channels
+
+	@media (min-width: 900px){
+		grid-template-columns: repeat(8, 100px);
+	}
+	@media (max-width: 900px) and (min-width: 800px){
+		grid-template-columns: repeat(7, 100px);
+	}
+	@media (max-width: 800px) and (min-width: 700px){
+		grid-template-columns: repeat(6, 100px);
+	}
+	@media (max-width: 700px) and (min-width: 600px){
+		grid-template-columns: repeat(5, 100px);
+	}
+	@media (max-width: 600px) and (min-width: 450px){
+		grid-template-columns: repeat(4, 100px);
+	}
+}
+
